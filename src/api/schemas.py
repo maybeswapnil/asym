@@ -78,6 +78,7 @@ class QuestionBase(BaseSchema):
     options: List[str] = Field(..., min_items=2, description="List of answer options")
     correct_answers: List[str] = Field(..., min_items=1, description="List of correct answer texts")
     order_index: int = Field(0, ge=0)
+    subject: Optional[str] = Field(None, description="Subject/section classification")
 
 
 class QuestionCreate(QuestionBase):
@@ -122,6 +123,7 @@ class QuestionResponsePublic(BaseSchema):
     points: int
     options: List[str]
     order_index: int
+    subject: Optional[str] = None
     created_at: datetime
 
 

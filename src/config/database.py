@@ -7,7 +7,10 @@ from typing import Optional
 from motor.motor_asyncio import AsyncIOMotorClient
 from beanie import init_beanie as beanie_init
 
-from ..models.quiz import Quiz, Question, Answer, QuizSession
+from ..models.quiz import (
+    Quiz, Question, Answer, QuizSession, 
+    RealExamResult, PredictionModel, UserPrediction, PerformanceAnalytics
+)
 from .settings import get_settings
 
 logger = logging.getLogger(__name__)
@@ -41,7 +44,10 @@ async def init_beanie():
         # Initialize Beanie with document models
         await beanie_init(
             database=database,
-            document_models=[Quiz, Question, Answer, QuizSession]
+            document_models=[
+                Quiz, Question, Answer, QuizSession,
+                RealExamResult, PredictionModel, UserPrediction, PerformanceAnalytics
+            ]
         )
         
         logger.info("MongoDB connection and Beanie ODM initialized successfully")

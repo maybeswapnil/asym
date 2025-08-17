@@ -11,7 +11,7 @@ import structlog
 
 from .config.settings import get_settings
 from .config.database import init_beanie
-from .api.endpoints import quiz, answer
+from .api.endpoints import quiz, answer, predictions
 from .api.schemas import HealthResponse
 
 # Configure structured logging
@@ -108,6 +108,7 @@ async def health_check():
 # Include API routers
 app.include_router(quiz.router)
 app.include_router(answer.router)
+app.include_router(predictions.router)
 
 
 # Root endpoint

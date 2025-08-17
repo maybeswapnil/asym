@@ -172,15 +172,19 @@ async def create_questions_bulk(question_data: BulkQuestionCreate):
         
         for idx, q_data in enumerate(question_data.questions):
             try:
-                question = await question_service.create_question(q_data.model_dump())
+                # Add quiz_id to each question data
+                question_dict = q_data.model_dump()
+                question_dict['quiz_id'] = question_data.quiz_id
+                question = await question_service.create_question(question_dict)
                 created_questions.append(question)
             except Exception as e:
                 errors.append(f"Question {idx + 1}: {str(e)}")
         
         return BulkOperationResponse(
-            created=len(created_questions),
-            errors=errors,
-            total=len(question_data.questions)
+            success_count=len(created_questions),
+            failed_count=len(errors),
+            total_count=len(question_data.questions),
+            errors=errors
         )
     except Exception as e:
         raise HTTPException(
