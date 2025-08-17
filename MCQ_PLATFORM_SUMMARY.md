@@ -107,7 +107,6 @@ Successfully transformed the Python boilerplate into a comprehensive **MCQ Quiz 
 
 ### Developer Experience
 - **Comprehensive schemas** with validation
-- **Auto-generated documentation** at `/docs`
 - **Structured logging** with JSON output
 - **Type hints** throughout codebase
 - **Clean architecture** with separation of concerns
@@ -149,5 +148,3 @@ Successfully transformed the Python boilerplate into a comprehensive **MCQ Quiz 
 **Business Logic**: Complete quiz, question, answer, and session management  
 **Documentation**: Auto-generated API docs available  
 **Architecture**: Clean, scalable, and maintainable codebase  
-
-The platform is now ready for production use and can be easily extended with the remaining architecture components (Redis, Kafka, MongoDB) as needed for scaling.
