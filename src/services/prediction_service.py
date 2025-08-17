@@ -135,8 +135,7 @@ class PredictionService:
         for session in sessions:
             quiz = await Quiz.get(session.quiz_id)
             if quiz and quiz.quiz_type == QuizType.MOCK_TEST:
-                # Check if quiz is relevant to target exam (e.g., CAT mocks for CAT 2025)
-                exam_type = target_exam.split()[0]  # Extract "CAT" from "CAT 2025"
+                exam_type = target_exam.split()[0] 
                 if exam_type.lower() in quiz.title.lower() or exam_type.lower() in quiz.category.lower():
                     relevant_sessions.append(session)
         
