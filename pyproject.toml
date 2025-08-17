@@ -1,9 +1,9 @@
 [project]
 name = "python-boilerplate"
 version = "0.1.0"
-description = "Production-ready Python boilerplate with clean architecture"
+description = "boilerplate"
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Swapnil Sharma", email = "swapnil.sharma1998@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.11"
